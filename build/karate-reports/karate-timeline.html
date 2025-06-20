@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"Test worker","id":1}];
+var items = [{"id":1,"group":1,"content":"karate-test[1:9]","start":1750436906125,"end":1750436908276,"title":"karate-test[1:9] 11:28:26.125-11:28:28.276 T-API-Marvel-API-CA1- Obtener todos los personajes con response 200"},{"id":2,"group":1,"content":"karate-test[2:16]","start":1750436908283,"end":1750436908593,"title":"karate-test[2:16] 11:28:28.283-11:28:28.593 T-API-Marvel-API-CA2- Crear nuevo personaje con response 200"},{"id":3,"group":1,"content":"karate-test[3.1:36]","start":1750436908600,"end":1750436908893,"title":"karate-test[3.1:36] 11:28:28.600-11:28:28.893 T-API-Marvel-API-CA3- Actualizar personaje con response 200"},{"id":4,"group":1,"content":"karate-test[4:38]","start":1750436908897,"end":1750436909136,"title":"karate-test[4:38] 11:28:28.897-11:28:29.136 T-API-Marvel-API-CA4- Delete personaje con response 200"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
